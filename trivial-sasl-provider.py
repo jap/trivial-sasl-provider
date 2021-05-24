@@ -77,7 +77,7 @@ class SocketLineReader:
                 if sep:
                     self.buf = rbuf
                     return line.decode()
-            more_data = csock.recv(8192 - len(self.buf))
+            more_data = self.sock.recv(8192 - len(self.buf))
             if not more_data:
                 return None
             self.buf += more_data
